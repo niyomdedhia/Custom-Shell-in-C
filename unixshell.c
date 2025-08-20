@@ -5,6 +5,28 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
+//the function for reading the line entered by the user
+
+char* readlin(){
+    int memory = 1024;
+    char *line = malloc(memory * sizeof(char));
+    int c;
+
+    int i=0;
+    while(1){
+        c=getchar;
+        if(c==EOF || c== '\n'){
+            line[i] = '\0';
+            return line;
+        }
+        else{
+            line[i] = c;
+            i++;
+        }
+    }
+
+}
+
 void lifetime(void){
     char *line = NULL;
     char **args = NULL;  //to store the input onbce the shell is already running
